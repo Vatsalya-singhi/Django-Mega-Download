@@ -20,7 +20,7 @@ from tvshow import views
 from tvshow import urls as tv_url
 urlpatterns = [
     url(r'^admin', admin.site.urls),
-    url(r'^$', include(tv_url)),
+    url(r'^', include(tv_url)),
     url(r'^movie$',views.movie_index, name = 'addmovie'),
     url(r'^tvshow$',views.checknpass, name = 'add'),
     url(r'^moviecall$',views.movie_checknpass, name = 'addmovie')
