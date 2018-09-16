@@ -25,7 +25,7 @@ SECRET_KEY = 'r^v##wqa-m2_!i$g6p*i^vv@(&lmes2ez_#$+bx(bnd4on(+46'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['megadownload.herokuapp.com']
 
 
 # Application definition
