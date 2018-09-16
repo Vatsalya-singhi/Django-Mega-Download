@@ -1,1 +1,1 @@
-web: gunicorn megadownload.wsgi:application —-log-file -
+web: gunicorn megadownload.wsgi:app —-log-file -
