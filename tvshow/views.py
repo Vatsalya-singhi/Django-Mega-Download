@@ -5,18 +5,20 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.http import JsonResponse
-
-import time,re,json,requests
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.chrome.options import Options
 from .models import show,movie
 import string
+import time,re,json,requests
+try:
+    from selenium import webdriver
+    from selenium.webdriver.common.by import By
+    from selenium.webdriver.support.ui import WebDriverWait
+    from selenium.webdriver.support import expected_conditions as EC
+    from selenium.webdriver.common.keys import Keys
+    from selenium.webdriver.support.ui import Select
+    from selenium.webdriver.common.action_chains import ActionChains
+    from selenium.webdriver.chrome.options import Options
+except:
+    pass
 
 def clean(findx):
     print("cleaning input")
@@ -35,8 +37,9 @@ def getrating(findx):
     try:
         findx=clean(findx)
 
-        chromedriver= 'D:\\webdrivers\\chromedriver'
+        chromedriver= CHROMEDRIVER_PATH //'D:\\webdrivers\\chromedriver'
         options = Options()
+        options.binary_location = GOOGLE_CHROME_BIN
         options.add_experimental_option("excludeSwitches",["ignore-certificate-errors"])
         prefs = {'profile.managed_default_content_settings.images':2, 'disk-cache-size': 4096}
         options.add_experimental_option("prefs", prefs)
@@ -126,8 +129,9 @@ def tv(request):
             cleanfindx= findx.replace(' ','').replace('.','') # search with no spaces and dots
             result=set()
             try:
-                chromedriver= 'D:\\webdrivers\\chromedriver'
+                chromedriver= CHROMEDRIVER_PATH //'D:\\webdrivers\\chromedriver'
                 options = Options()
+                options.binary_location = GOOGLE_CHROME_BIN
                 options.add_experimental_option("excludeSwitches",["ignore-certificate-errors"])
                 prefs = {'profile.managed_default_content_settings.images':2, 'disk-cache-size': 4096}
                 options.add_experimental_option("prefs", prefs)
@@ -209,8 +213,9 @@ def mo(request):
             cleanfindx= findx.replace(' ','').replace('.','') # search with no spaces and dots
             result=set()
             try:
-                chromedriver= 'D:\\webdrivers\\chromedriver'
+                chromedriver= CHROMEDRIVER_PATH //'D:\\webdrivers\\chromedriver'
                 options = Options()
+                options.binary_location = GOOGLE_CHROME_BIN
                 options.add_experimental_option("excludeSwitches",["ignore-certificate-errors"])
                 prefs = {'profile.managed_default_content_settings.images':2, 'disk-cache-size': 4096}
                 options.add_experimental_option("prefs", prefs)
