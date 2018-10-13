@@ -8,17 +8,17 @@ from django.http import JsonResponse
 from .models import show,movie
 import string
 import time,re,json,requests
-try:
-    from selenium import webdriver
-    from selenium.webdriver.common.by import By
-    from selenium.webdriver.support.ui import WebDriverWait
-    from selenium.webdriver.support import expected_conditions as EC
-    from selenium.webdriver.common.keys import Keys
-    from selenium.webdriver.support.ui import Select
-    from selenium.webdriver.common.action_chains import ActionChains
-    from selenium.webdriver.chrome.options import Options
-except:
-    pass
+//try:
+//    from selenium import webdriver
+//    from selenium.webdriver.common.by import By
+//    from selenium.webdriver.support.ui import WebDriverWait
+//    from selenium.webdriver.support import expected_conditions as EC
+//    from selenium.webdriver.common.keys import Keys
+//    from selenium.webdriver.support.ui import Select
+//    from selenium.webdriver.common.action_chains import ActionChains
+//    from selenium.webdriver.chrome.options import Options
+//except:
+//    pass
 
 def clean(findx):
     print("cleaning input")
@@ -37,7 +37,7 @@ def getrating(findx):
     try:
         findx=clean(findx)
 
-        chromedriver= CHROMEDRIVER_PATH //'D:\\webdrivers\\chromedriver'
+        chromedriver= os.environ.get('CHROMEDRIVER_PATH',None) //'D:\\webdrivers\\chromedriver'
         options = Options()
         options.binary_location = GOOGLE_CHROME_BIN
         options.add_experimental_option("excludeSwitches",["ignore-certificate-errors"])
@@ -45,7 +45,7 @@ def getrating(findx):
         options.add_experimental_option("prefs", prefs)
         options.add_argument('--headless')
         options.add_argument('--disable-gpu')
-        browser = webdriver.Chrome(chromedriver,chrome_options=options)
+        browser = webdriver.Chrome(executable_path="chromedriver",chrome_options=options)
 
         browser.get('https://www.imdb.com/')
         search=browser.find_element_by_name("q")
