@@ -34,7 +34,7 @@ def getrating(findx):
     try:
         findx=clean(findx)
 
-        chromedriver= os.environ.get('CHROMEDRIVER_PATH',None) //'D:\\webdrivers\\chromedriver'
+        chromedriver= os.environ.get('CHROMEDRIVER_PATH',None) #//'D:\\webdrivers\\chromedriver'
         options = Options()
         options.binary_location = GOOGLE_CHROME_BIN
         options.add_experimental_option("excludeSwitches",["ignore-certificate-errors"])
@@ -126,7 +126,7 @@ def tv(request):
             cleanfindx= findx.replace(' ','').replace('.','') # search with no spaces and dots
             result=set()
             try:
-                chromedriver= os.environ.get('CHROMEDRIVER_PATH',None) //'D:\\webdrivers\\chromedriver'
+                chromedriver= os.environ.get('CHROMEDRIVER_PATH',None) #//'D:\\webdrivers\\chromedriver'
                 options = Options()
                 options.binary_location = GOOGLE_CHROME_BIN
                 options.add_experimental_option("excludeSwitches",["ignore-certificate-errors"])
@@ -210,7 +210,7 @@ def mo(request):
             cleanfindx= findx.replace(' ','').replace('.','') # search with no spaces and dots
             result=set()
             try:
-                chromedriver= os.environ.get('CHROMEDRIVER_PATH',None) //'D:\\webdrivers\\chromedriver'
+                chromedriver= os.environ.get('CHROMEDRIVER_PATH',None) # //'D:\\webdrivers\\chromedriver'
                 options = Options()
                 options.binary_location = GOOGLE_CHROME_BIN
                 options.add_experimental_option("excludeSwitches",["ignore-certificate-errors"])
