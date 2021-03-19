@@ -18,7 +18,7 @@ cryptography==2.2.2
 cycler==0.10.0
 decorator==4.1.2
 Django==2.1
-djangorestframework==3.8.2
+djangorestframework==3.11.2
 entrypoints==0.2.3
 enum34==1.1.6
 et-xmlfile==1.0.1
