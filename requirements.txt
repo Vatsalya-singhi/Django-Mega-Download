@@ -81,7 +81,7 @@ ply==3.10
 projectq==0.3.6
 prompt-toolkit==1.0.15
 protobuf==3.4.0
-py==1.5.3
+py==1.10.0
 pyasn1==0.4.2
 pyasn1-modules==0.2.1
 pybind11==2.2.2
